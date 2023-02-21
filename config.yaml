@@ -1,0 +1,7 @@
+endpoints:
+  SOURCE_ENDPOINT:
+    UUID: ffc65d7a-0bf9-11ec-90b4-41052087bc27
+  DEST_ENDPOINT: 
+    UUID: c3dc2ae2-74c6-11e8-93bb-0a6d4e044368
+    remote_dir: /~/showyourwork/showyourwork_globus_demo/
+    local_dir: /mnt/home/lgarrison/showyourwork/showyourwork_globus_demo
