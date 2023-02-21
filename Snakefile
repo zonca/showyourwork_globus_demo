@@ -1,5 +1,3 @@
-configfile: "config.yaml"
-
 from pathlib import Path
 
 SOURCE_ENDPOINT = config['endpoints']['SOURCE_ENDPOINT']['UUID']
