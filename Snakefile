@@ -1,11 +1,17 @@
-SOURCE_ENDPOINT = "ffc65d7a-0bf9-11ec-90b4-41052087bc27"
-DEST_ENDPOINT = "9d6d994a-6d04-11e5-ba46-22000b92c6ec"
+configfile: "config.yaml"
+
+from pathlib import Path
+
+SOURCE_ENDPOINT = config['endpoints']['SOURCE_ENDPOINT']['UUID']
 
 rule upload_results:
     input:
         "data/output_abacus.par"
-    shell:
-        "globus transfer {DEST_ENDPOINT}:/~/p/software/showyourwork_globus_demo/data/output_abacus.par {DEST_ENDPOINT}:/~/p/software/showyourwork_globus_demo/results/output_abacus.par"
+    run:
+        uuid = config['endpoints']['DEST_ENDPOINT']['UUID']
+        infn = Path(config['endpoints']['DEST_ENDPOINT']['remote_dir']) / 'data/output_abacus.par'
+        outfn = Path(config['endpoints']['DEST_ENDPOINT']['remote_dir']) / 'results/output_abacus.par'
+        shell("globus transfer {uuid}:{infn} {uuid}:{outfn}")
 
 rule process_data:
     input:
@@ -20,5 +26,10 @@ rule process_data:
 rule copy_data:
     output:
         "data/abacus.par"
-    shell:
-        "globus transfer {SOURCE_ENDPOINT}:/~/AbacusSummit_base_c000_ph000/abacus.par {DEST_ENDPOINT}:/~/p/software/showyourwork_globus_demo/data/abacus.par"
+    run:
+        import time
+        dst_uuid = config['endpoints']['DEST_ENDPOINT']['UUID']
+        dst_fn = Path(config['endpoints']['DEST_ENDPOINT']['remote_dir']) / "data/abacus.par"
+        shell("globus transfer {SOURCE_ENDPOINT}:/~/AbacusSummit_base_c000_ph000/abacus.par {dst_uuid}:{dst_fn}")
+        while not Path(output[0]).exists():
+            time.sleep(0.5)
