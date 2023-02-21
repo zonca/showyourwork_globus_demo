@@ -1,0 +1,7 @@
+endpoints:
+  SOURCE_ENDPOINT:
+    UUID: ffc65d7a-0bf9-11ec-90b4-41052087bc27
+  DEST_ENDPOINT: 
+    UUID: 9d6d994a-6d04-11e5-ba46-22000b92c6ec
+    remote_dir: /~/p/software/showyourwork_globus_demo
+    local_dir: /global/u2/z/zonca/p/software/showyourwork_globus_demo
