@@ -30,7 +30,12 @@ DEST_ENDPOINT:
     local_dir: /mnt/home/lgarrison/showyourwork/showyourwork_globus_demo
 ```
 
-See examples in the `config` folder.
+See examples in the `config` folder, and select a config file with:
+
+```console
+$ snakemake -c1 --configfile=config/myconfigfile.yaml
+```
+
 
 The `UUID` should be set to your endpoint's UUID.  The `remote_dir` is the
 path to the download directory *as seen by the endpoint*; the `local_dir`
