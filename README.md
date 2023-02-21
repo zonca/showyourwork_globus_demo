@@ -7,6 +7,7 @@ Snakemake has support for GridFTP, but the newest Globus server v5 has no
 support for GridFTP, if my understanding is correct.
 
 We assume to run on a machine that has a Globus endpoint attached, like a Supercomputer.
+We also assume the user already ran `globus login` to authenticate.
 
 The Snakefile script:
 
