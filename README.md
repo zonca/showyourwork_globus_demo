@@ -15,4 +15,10 @@
 </a>
 </p>
 
-An open source scientific article created using the [showyourwork](https://github.com/showyourwork/showyourwork) workflow.
+# Showyourwork + Globus Demo
+
+Demo of using the workflow management tool for scientific articles [`showyourwork`](https://show-your.work/) pulling and pushing data using `globus-cli`
+
+## Snakemake-only demo
+
+[See the `snakemake_globus_demo` folder](./snakemake_globus_demo/) for a demo using only Snakemake, the workflow management tool `showyourwork` is based on.
